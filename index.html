@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Naive Live Loader</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+</head>
+<body>
+  <form id="load">
+    <input type="url" name="stream" id="stream_url">
+    <button id="load_btn">Load</button>
+  </form>
+  <figure id="video_container" class="container">
+    <video id="main_video"></video>
+    <div id="over_area" class="controllable-area">
+      <div id="video_controls" class="controls">
+        <button id="playpause" type="button">Play/Pause</button>
+        <button id="mute" type="button">Mute/Unmute</button>
+        <input id="volume" type="range" min="0" max="100" step="1">
+        <button id="fs" type="button">Fullscreen</button>
+      </div>
+    </div>
+  </figure>
+  <script type="module" src="main.js"></script>
+</body>
+</html>
