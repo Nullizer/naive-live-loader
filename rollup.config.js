@@ -2,6 +2,7 @@ import typescript from '@rollup/plugin-typescript'
 import resolve from '@rollup/plugin-node-resolve'
 import commonjs from '@rollup/plugin-commonjs'
 import nodePolyfills from 'rollup-plugin-node-polyfills'
+import { terser } from "rollup-plugin-terser"
 import { sep } from 'path'
 
 export default {
@@ -10,7 +11,7 @@ export default {
     dir: 'dist',
     format: 'esm',
   },
-  plugins: [typescript(), resolve(), commonjs(), nodePolyfills()],
+  plugins: [typescript(), resolve(), commonjs(), nodePolyfills(), terser()],
   manualChunks (id) {
     if (id.includes('node_modules/')) {
       const dirsInPath = id.split(sep)

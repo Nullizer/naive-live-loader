@@ -13,7 +13,6 @@ const streamInput = $('stream_url') as HTMLInputElement
 let flvPlayer: flvjs.Player | undefined
 
 const savedVolume = localStorage.getItem('volume')
-console.log('savedVolume', Number.parseFloat(savedVolume!))
 video.volume = Number.parseFloat(savedVolume!) || 0.1
 video.addEventListener('volumechange', () => {
   localStorage.setItem('volume', video.volume.toString())
