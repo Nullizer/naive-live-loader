@@ -1,0 +1,21 @@
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '*'
+    - run: node -v && npm -v
+    - run: npm install
+    - run: npm test
+    - run: sudo apt-get install tree
+    - run: tree dist/
+      env:
+        CI: true

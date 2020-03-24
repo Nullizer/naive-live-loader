@@ -1,0 +1,64 @@
+@import "global.css";
+@import "range.css";
+
+body {
+  background-color: #404040;
+}
+
+a {
+  text-decoration: none;
+}
+
+input[type=url] {
+  min-width: 24em;
+}
+
+input[type=range] {
+  margin: 0;
+  height: 1em;
+  background: transparent;
+}
+
+.container {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #666;
+  position: relative;
+}
+@media screen and (resolution: 1.25dppx) {
+  .container {
+    width: calc(960px / 1.25);
+  }
+}
+video {
+  width: 100%;
+  display: block;
+}
+.controllable-area {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 20%;
+}
+.controls {
+  display: none;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  background-color: cadetblue;
+  opacity: 0.5;
+}
+[data-controls-state=show] .controls {
+  display: block;
+}
+.controls button {
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+.controls button:hover, .controls button:focus {
+  opacity: 0.5;
+}
+.controls button:last-child {
+  float: right;
+}
