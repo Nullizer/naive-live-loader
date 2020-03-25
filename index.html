@@ -8,10 +8,18 @@
   <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
 </head>
 <body>
-  <form id="load">
+  <form class="inline-form" id="load">
     <input type="url" name="stream" id="stream_url">
     <button id="load_btn">Load</button>
   </form>
+  <span>Viewport: </span>
+  <select id="res">
+    <option value="0">auto</option>
+    <option value="960">540p</option>
+    <option value="1280">720p</option>
+    <option value="1600">900p</option>
+    <option value="1920">1080p</option>
+  </select>
   <figure id="video_container" class="container">
     <video id="main_video"></video>
     <div id="over_area" class="controllable-area">
