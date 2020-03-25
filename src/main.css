@@ -3,6 +3,7 @@
 
 body {
   background-color: #404040;
+  color: white;
 }
 
 a {
@@ -18,7 +19,9 @@ input[type=range] {
   height: 1em;
   background: transparent;
 }
-
+.inline-form {
+  display: inline-block;
+}
 .container {
   width: 960px;
   margin: 0 auto;

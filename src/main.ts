@@ -10,6 +10,7 @@ const playpause = $('playpause')!
 const mute = $('mute')!
 const volume = $('volume') as HTMLInputElement
 const streamInput = $('stream_url') as HTMLInputElement
+const res = $('res') as HTMLSelectElement
 let flvPlayer: flvjs.Player | undefined
 
 const savedVolume = localStorage.getItem('volume')
@@ -19,7 +20,6 @@ video.addEventListener('volumechange', () => {
 })
 
 video.addEventListener('playing', () => {
-  videoContainer.style.width = video.videoWidth / devicePixelRatio + 'px'
   volume.value = (video.volume*100).toString()
 })
 playpause.addEventListener('click', () => {
@@ -40,12 +40,19 @@ volume.addEventListener('input', () => {
   video.volume = Number.parseInt(volume.value) / 100
 })
 
-overArea.addEventListener('mouseenter', (event) => {
+overArea.addEventListener('mouseenter', () => {
   overArea.dataset.controlsState = 'show'
 })
-overArea.addEventListener('mouseleave', (event) => {
+overArea.addEventListener('mouseleave', () => {
   overArea.dataset.controlsState = 'hide'
 })
+
+res.addEventListener('change', setViewSize)
+video.addEventListener('playing', setViewSize)
+function setViewSize () {
+  const width = Number.parseInt(res.value) || video.videoWidth
+  if (width) videoContainer.style.width = width / devicePixelRatio + 'px'
+}
 
 $('load')?.addEventListener('submit', event => {
   event.preventDefault()
