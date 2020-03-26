@@ -1,16 +1,16 @@
 import flvjs from 'flv.js'
 
-const $ = document.getElementById.bind(document)
+const $ = document.querySelector.bind(document)
 
-const videoContainer = $('video_container')!
-const video = $('main_video') as HTMLVideoElement
-const overArea = $('over_area')!
-const fsBtn = $('fs')!
-const playpause = $('playpause')!
-const mute = $('mute')!
-const volume = $('volume') as HTMLInputElement
-const streamInput = $('stream_url') as HTMLInputElement
-const res = $('res') as HTMLSelectElement
+const videoContainer = $('#video_container') as HTMLElement
+const video = $('#main_video') as HTMLVideoElement
+const overArea = $('#over_area') as HTMLDivElement
+const fsBtn = $('#fs')!
+const playpause = $('#playpause')!
+const mute = $('#mute')!
+const volume = $('#volume') as HTMLInputElement
+const streamInput = $('#stream_url') as HTMLInputElement
+const res = $('#res') as HTMLSelectElement
 let flvPlayer: flvjs.Player | undefined
 
 const savedVolume = localStorage.getItem('volume')
@@ -54,7 +54,7 @@ function setViewSize () {
   if (width) videoContainer.style.width = width / devicePixelRatio + 'px'
 }
 
-$('load')?.addEventListener('submit', event => {
+$('#load')!.addEventListener('submit', event => {
   event.preventDefault()
   const url = streamInput.value
   if (flvPlayer) {

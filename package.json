@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "rimraf dist && concurrently npm:copy npm:css 'rollup -c'",
-    "prod": "npm start",
+    "prod": "NODE_ENV=production npm start",
     "copy": "copyfiles -u 1 'src/**/*.{html,jpg,jpeg,webp,png}' dist",
     "css": "postcss src/main.css -d dist",
     "test": "npm run prod && ls -lh dist/index.html"

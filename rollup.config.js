@@ -5,13 +5,15 @@ import nodePolyfills from 'rollup-plugin-node-polyfills'
 import { terser } from "rollup-plugin-terser"
 import { sep } from 'path'
 
+const isProd = process.env.NODE_ENV === 'production'
+
 export default {
   input: 'src/main.ts',
   output: {
     dir: 'dist',
     format: 'esm',
   },
-  plugins: [typescript(), resolve(), commonjs(), nodePolyfills(), terser()],
+  plugins: [typescript(), resolve(), commonjs(), nodePolyfills(), isProd && terser()],
   manualChunks (id) {
     if (id.includes('node_modules/')) {
       const dirsInPath = id.split(sep)
