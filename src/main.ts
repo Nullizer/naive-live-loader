@@ -57,6 +57,8 @@ function setViewSize () {
 $('#load')!.addEventListener('submit', event => {
   event.preventDefault()
   const url = streamInput.value
+  if (!url) return
+
   if (flvPlayer) {
     flvPlayer.detachMediaElement()
     flvPlayer.destroy()
@@ -72,10 +74,11 @@ $('#load')!.addEventListener('submit', event => {
   flvPlayer.load()
   flvPlayer.play()
 
-  if (url) {
-    const params = new URLSearchParams(location.search)
-    const stream = params.get('stream')
-    if (stream !== url) history.pushState(null, '', '?stream=' + encodeURIComponent(url))
+  const params = new URLSearchParams(location.search)
+  const stream = params.get('stream')
+  if (stream !== url) {
+    params.set('stream', url)
+    history.pushState(null, '', '?' + params)
   }
 })
 
