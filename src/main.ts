@@ -20,7 +20,7 @@ video.addEventListener('volumechange', () => {
 })
 
 video.addEventListener('playing', () => {
-  volume.value = (video.volume*100).toString()
+  volume.value = (video.volume * 100).toString()
 })
 playpause.addEventListener('click', () => {
   if (video.paused || video.ended) video.play()

@@ -1,7 +1,8 @@
+const isProd = process.env.NODE_ENV === 'production'
 module.exports = {
-  map: false,
+  map: !isProd,
   plugins: [
     require('postcss-import'),
-    require('cssnano'),
+    isProd && require('cssnano'),
   ]
 }

@@ -59,7 +59,8 @@ video {
   cursor: pointer;
   background: transparent;
 }
-.controls button:hover, .controls button:focus {
+.controls button:hover,
+.controls button:focus {
   opacity: 0.5;
 }
 .controls button:last-child {
