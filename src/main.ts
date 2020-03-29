@@ -67,8 +67,6 @@ $('#load')!.addEventListener('submit', event => {
     type: 'flv',
     isLive: true,
     url,
-  }, {
-    enableStashBuffer: false,
   })
   flvPlayer.attachMediaElement(video)
   flvPlayer.load()
