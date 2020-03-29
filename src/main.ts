@@ -56,7 +56,7 @@ function setViewSize () {
 
 $('#load')!.addEventListener('submit', event => {
   event.preventDefault()
-  const url = streamInput.value.trim()
+  const url = streamInput.value = streamInput.value.trim()
   if (!url) return
 
   if (flvPlayer) {
@@ -73,7 +73,7 @@ $('#load')!.addEventListener('submit', event => {
   flvPlayer.play()
 
   const params = new URLSearchParams(location.search)
-  const stream = params.get('stream')?.trim()
+  const stream = params.get('stream')
   if (stream !== url) {
     params.set('stream', url)
     history.pushState(null, '', '?' + params)
@@ -84,7 +84,7 @@ window.addEventListener('popstate', insertURL)
 window.addEventListener('load', insertURL)
 function insertURL () {
   const params = new URLSearchParams(location.search)
-  const url = params.get('stream')?.trim()
+  const url = params.get('stream')
   if (url) {
     streamInput.value = url
   }
