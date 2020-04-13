@@ -15,7 +15,7 @@
   "author": "Nullizer",
   "license": "ISC",
   "devDependencies": {
-    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-node-resolve": "^7.1.1",
     "@rollup/plugin-typescript": "^4.1.1",
     "@typescript-eslint/eslint-plugin": "^2.27.0",
