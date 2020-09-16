@@ -30,7 +30,7 @@ mute.addEventListener('click', () => {
   video.muted = !video.muted
 })
 fsBtn.addEventListener('click', () => {
-  if (document.fullscreen) {
+  if (document.fullscreenElement) {
     document.exitFullscreen()
   } else {
     videoContainer.requestFullscreen()
