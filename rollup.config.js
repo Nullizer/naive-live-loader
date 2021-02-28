@@ -15,7 +15,7 @@ export default {
     format: 'esm',
   },
   plugins: [
-    typescript(), resolve(), commonjs(), nodePolyfills(),
+    typescript(), resolve({ preferBuiltins: false }), commonjs(), nodePolyfills(),
     replace({ arguments: '[]', include: /webworkify/ }),
     isProd && terser()
   ],
